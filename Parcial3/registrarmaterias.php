@@ -2,51 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Alumno</title>
-    <link rel="stylesheet" href="css/bootstrap.css"> 
+    <title>Registar Materias</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="code.jquery.com_jquery-3.7.1.js"></script>
 </head>
 <body>
-    <?php 
-        include 'menu.php'; 
-        include 'conexion.php';
-
-        $id = $_GET["id"];
-
-        $sql = "SELECT * FROM alumnos WHERE id=".$id;
-
-        $datos = $conexion->query($sql);
-        
-        $alumno = $datos->fetch_assoc();
-
-    ?>
+    
+<?php  include 'menu.php';   ?> 
     <div class="container">
         <div class="row">
-            <div class="col-12 card m-4 p-4">
-                <h2>Registrar Alumno</h2><hr>
-                <form action="ActualizarAlumno.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $alumno["id"]; ?>">
+            <div class="col-12 card p-4">
+                <form action="">
                     <div class="form-group">
                         <label for="">Nombre:</label>
-                        <input value="<?php echo $alumno["nombre"]; ?>" name="nombre" type="text" class="form-control" placeholder="Teclea la materia" reqlumnuired>
+                        <input type="text" class="form-control" name="nombre" placeholder="Teclea la Materia">
                     </div>
                     <div class="form-group">
-                        <label for="">Número de control:</label>
-                        <input value="<?php echo $alumno["numero_control"]; ?>" name="nc" type="text" class="form-control" placeholder="Teclea el semestre" required>
+                    <label for="">Semestre:</label>
+                    <input type="number" class="form-control" name="semestre" placeholder="Teclea el Semestre">
                     </div>
-                    <div class="form-group">
-                        <select name="especialidad" class="form-group">
-                        <option value="">Selecciona una especialidad</option>
-                        <option value="PROGRAMACION">PROGRAMACION</option>
-                        <option value="CONTABILIDAD">CONTABILIDAD</option>
-                        <option value="OFIMATICA">OFIMATICA</option>
-                        <option value="CONSTRUCCION">CONSTRUCCION</option>
-                        <option value="ELECTRONICA">ELECTRONICA</option>
-                    </div>
-                  
 
-    <script src="js/bootstrap.js"></script>
+                    <div class="form-group">
+                        <label for="">Especialidad:</label>
+                    <select name="especialidad" class="form-control">
+                    <option value="">selecciona una especialidad</option>
+                    <option value="PROGRAMACION">PROGRAMACION</option>
+                    <option value="ELECTRONICA">ELECTRONICA</option>
+                    <option value="CONSTRUCCION">CONSTRUCCION</option>
+                    <option value="CONTABILIDAD">CONTABILIDAD</option>
+                    <option value="OFIMATICA">OFIMATICA</option>
+                    </select>
+                    </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                    <a href="registrarmaterias.php" class="btn btn-danger">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+
+    <script src="js/bootstrap.bundle.js"></script>  
 </body>
 </html>
