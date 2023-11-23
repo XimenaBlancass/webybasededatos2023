@@ -21,7 +21,7 @@
                 <?php if($datos->num_rows = 0) { ?>
                     <?php while($registro =$datos->fetch_assoc()){
                 $id =$registro["id"];
-                $sql2 = "SELECT a., m.nombre AS materia_nombre FROM alumnos a INNER JOIN alumno_materias am ON a.id = am.alumnos_id INNER JOIN materias m ON m.id = am.materia_id WHERE a.id=". $id;
+                $sql2 = "SELECT a.*, m.nombre AS materia_nombre FROM alumnos a INNER JOIN alumno_materias am ON a.id = am.alumnos_id INNER JOIN materias m ON m.id = am.materia_id WHERE a.id=". $id;
             $datos2 = $conexion->query($sql2);
                 ?>
                 
@@ -33,7 +33,7 @@
                     <h5 class="card-title">Materias asignadas: </h5>
                     <p class="card-text">
                     <ul>
-                    <?php while (&materia = &datos2->fetch_assoc()) { ?>
+                    <?php while ($materia = $datos2->fetch_assoc()) { ?>
                         <li> <?php echo $registro["materia_nombre"]; ?></li>
                         <?php } ?>
                         </ul>
@@ -49,7 +49,7 @@
     </div>
 
         <footer class="text-center">
-        <hr>
+        <hr> 
         CETIS 107 $copy; 2023
         </footer>
         <script src="js/boostrap.js"></script>
